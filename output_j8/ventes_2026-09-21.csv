@@ -1,0 +1,28 @@
+date,produit,vendeur,region,montant,charge_le,marge,taille
+2026-09-21,Laptop Pro,Karim,Île-de-France,1200,2026-09-21T11:23:12.953886,504.0,Moyenne
+2026-09-21,Smartphone X,Thomas,Grand Est,2600,2026-09-21T11:23:12.953886,1092.0,Grosse
+2026-09-21,Tablette Air,Lucie,Île-de-France,2700,2026-09-21T11:23:12.953886,1134.0,Grosse
+2026-09-21,Tablette Air,Alice,Auvergne-Rhône-Alpes,4500,2026-09-21T11:23:12.953886,1890.0,Grosse
+2026-09-21,Smartphone X,Alice,Occitanie,5850,2026-09-21T11:23:12.953886,2457.0,Grosse
+2026-09-21,Smartphone X,Thomas,Grand Est,5200,2026-09-21T11:23:12.953886,2184.0,Grosse
+2026-09-21,Smartphone X,Alice,Occitanie,4550,2026-09-21T11:23:12.953886,1911.0,Grosse
+2026-09-21,Laptop Pro,Lucie,PACA,12000,2026-09-21T11:23:12.953886,5040.0,Grosse
+2026-09-21,Écouteurs BT,Nadia,Occitanie,1200,2026-09-21T11:23:12.953886,504.0,Moyenne
+2026-09-21,Écouteurs BT,Karim,PACA,1200,2026-09-21T11:23:12.953886,504.0,Moyenne
+2026-09-21,Smartphone X,Alice,PACA,5850,2026-09-21T11:23:12.953886,2457.0,Grosse
+2026-09-21,Tablette Air,Thomas,Auvergne-Rhône-Alpes,450,2026-09-21T11:23:12.953886,189.0,Petite
+2026-09-21,Smartphone X,Karim,Île-de-France,5200,2026-09-21T11:23:12.953886,2184.0,Grosse
+2026-09-21,Laptop Pro,Thomas,Île-de-France,12000,2026-09-21T11:23:12.953886,5040.0,Grosse
+2026-09-21,Écouteurs BT,Lucie,PACA,840,2026-09-21T11:23:12.953886,352.8,Moyenne
+2026-09-21,Smartphone X,Alice,PACA,3900,2026-09-21T11:23:12.953886,1638.0,Grosse
+2026-09-21,Écouteurs BT,Alice,Île-de-France,360,2026-09-21T11:23:12.953886,151.2,Petite
+2026-09-21,Écouteurs BT,Nadia,PACA,360,2026-09-21T11:23:12.953886,151.2,Petite
+2026-09-21,Écouteurs BT,Karim,PACA,240,2026-09-21T11:23:12.953886,100.8,Petite
+2026-09-21,Tablette Air,Karim,Occitanie,3150,2026-09-21T11:23:12.953886,1323.0,Grosse
+2026-09-21,Tablette Air,Thomas,Grand Est,1350,2026-09-21T11:23:12.953886,567.0,Moyenne
+2026-09-21,Laptop Pro,Karim,PACA,1200,2026-09-21T11:23:12.953886,504.0,Moyenne
+2026-09-21,Smartphone X,Lucie,Île-de-France,5850,2026-09-21T11:23:12.953886,2457.0,Grosse
+2026-09-21,Tablette Air,Lucie,Auvergne-Rhône-Alpes,3600,2026-09-21T11:23:12.953886,1512.0,Grosse
+2026-09-21,Tablette Air,Alice,PACA,900,2026-09-21T11:23:12.953886,378.0,Moyenne
+2026-09-21,Écouteurs BT,Nadia,Auvergne-Rhône-Alpes,960,2026-09-21T11:23:12.953886,403.2,Moyenne
+2026-09-21,Smartphone X,Nadia,Grand Est,5850,2026-09-21T11:23:12.953886,2457.0,Grosse

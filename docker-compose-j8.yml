@@ -1,0 +1,89 @@
+version: '3.8'
+
+# ============================================================
+#  JOUR 8 / 10 — Docker : Monitoring
+#  Stack : ETL + PostgreSQL + health checks + logs
+# ============================================================
+
+services:
+
+  postgres:
+    image: postgres:15-alpine
+    container_name: postgres_j8
+    environment:
+      POSTGRES_DB       : ventes_db
+      POSTGRES_USER     : admin
+      POSTGRES_PASSWORD : secret123
+    volumes:
+      - pgdata_j8:/var/lib/postgresql/data
+      - ./sql_j8:/docker-entrypoint-initdb.d
+    networks:
+      - monitoring_net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U admin -d ventes_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  etl:
+    build:
+      context: .
+      dockerfile: Dockerfile.j8
+    container_name: etl_j8
+    environment:
+      DB_HOST     : postgres
+      DB_NAME     : ventes_db
+      DB_USER     : admin
+      DB_PASSWORD : secret123
+      OUTPUT_PATH : /app/output
+    volumes:
+      - ./output_j8:/app/output
+    networks:
+      - monitoring_net
+    depends_on:
+      postgres:
+        condition: service_healthy
+    restart: on-failure:3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "5m"
+        max-file: "2"
+
+  # ── Healthcheck HTTP simple ───────────────────────────────
+  healthcheck-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.j8
+    container_name: healthcheck_j8
+    command: python app_j8/health_server.py
+    environment:
+      DB_HOST     : postgres
+      DB_NAME     : ventes_db
+      DB_USER     : admin
+      DB_PASSWORD : secret123
+    ports:
+      - "8081:8081"
+    networks:
+      - monitoring_net
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+volumes:
+  pgdata_j8:
+
+networks:
+  monitoring_net:
+    driver: bridge

@@ -1,0 +1,14 @@
+FROM python:3.11 AS builder
+WORKDIR /build
+COPY requirements_j8.txt .
+RUN pip install --no-cache-dir --prefix=/build/install -r requirements_j8.txt
+
+FROM python:3.11-slim AS runtime
+WORKDIR /app
+COPY --from=builder /build/install /usr/local
+COPY app_j8/ ./app_j8/
+RUN groupadd -r appuser && useradd -r -g appuser appuser
+RUN mkdir -p /app/output && chown -R appuser:appuser /app
+USER appuser
+ENV PYTHONUNBUFFERED=1
+CMD ["python", "app_j8/etl_monitoring.py"]
